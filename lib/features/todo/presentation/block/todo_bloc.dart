@@ -40,10 +40,11 @@ class TodoBloc extends Bloc<TodosEvent, TodoState> {
       ),
     );
 
-    // вызываем первоначальный запрос списка из БД
-    add(const TodosEvent.getTodosFromDB());
     // создаем подписку на БД
     add(const TodosEvent.subscribe());
+
+    // вызываем первоначальный запрос списка из БД
+    add(const TodosEvent.getTodosFromDB());
   }
 
   Future<void> _getTodosFromDB(GetTodosFromDBEvent event, Emitter<TodoState> emit) async {

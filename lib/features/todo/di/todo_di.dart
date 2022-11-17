@@ -25,7 +25,7 @@ class TodoDIModule extends BaseDIModule {
     instance.registerFactory(() => UpdateTodoUseCase(repository: instance.get()));
 
     // data sources
-    instance.registerLazySingleton<TodoLocalDataSource>(() => TodoLocalDataSourceImpl(db: getIt()));
+    instance.registerLazySingleton<TodoLocalDataSource>(() => TodoLocalDataSourceImpl(db: instance.get()));
 
     // data bases
     instance.registerLazySingleton(() => TodosDb());
